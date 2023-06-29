@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HpD-PK-2Da">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="DZM-Ql-Fvf">
+            <objects>
+                <viewController storyboardIdentifier="MailsViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bRf-t9-plA" customClass="MailsViewController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0Q-U9-Uhk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-K7-QZF">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mwi-fz-bRd"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mwi-fz-bRd" firstAttribute="bottom" secondItem="j4z-K7-QZF" secondAttribute="bottom" id="AoC-wR-nR8"/>
+                            <constraint firstItem="j4z-K7-QZF" firstAttribute="leading" secondItem="Mwi-fz-bRd" secondAttribute="leading" id="K7y-VB-nju"/>
+                            <constraint firstItem="j4z-K7-QZF" firstAttribute="top" secondItem="Mwi-fz-bRd" secondAttribute="top" id="Kjn-rs-UuE"/>
+                            <constraint firstItem="Mwi-fz-bRd" firstAttribute="trailing" secondItem="j4z-K7-QZF" secondAttribute="trailing" id="d2T-9E-hBq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="pencil" catalog="system" id="rzD-ek-fu3"/>
+                    <connections>
+                        <outlet property="mailsContainerView" destination="j4z-K7-QZF" id="w0q-E6-dgf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYY-vo-lC4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-527" y="942"/>
+        </scene>
+        <!--Gmail Tab Bar Controller-->
+        <scene sceneID="4gI-l9-Dr4">
+            <objects>
+                <tabBarController id="HpD-PK-2Da" customClass="GmailTabBarController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ro8-oI-qbp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="812-NL-DJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="266"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="7Re-7o-wr3">
+            <objects>
+                <viewController storyboardIdentifier="MeetsViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vR8-hB-eKs" customClass="MeetsViewController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6QB-rk-xAb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="TwA-Xe-Zhx"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.up.fill" catalog="system" id="4Wc-Hy-WLI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRa-z7-Daz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="942"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+    </resources>
+</document>

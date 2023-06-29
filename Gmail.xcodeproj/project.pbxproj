@@ -12,8 +12,17 @@
 		CC88800E2A4DBE4300FF043F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88800C2A4DBE4300FF043F /* Main.storyboard */; };
 		CC8880102A4DBE4400FF043F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC88800F2A4DBE4400FF043F /* Assets.xcassets */; };
 		CC8880132A4DBE4400FF043F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8880112A4DBE4400FF043F /* LaunchScreen.storyboard */; };
-		CC8880202A4DBF5D00FF043F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88801F2A4DBF5D00FF043F /* SignInViewController.swift */; };
-		CC8880242A4DCC6800FF043F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880232A4DCC6800FF043F /* CreateAccountViewController.swift */; };
+		CC8880332A4DE95500FF043F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8880322A4DE95500FF043F /* Registration.storyboard */; };
+		CC8880372A4DEBA500FF043F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880362A4DEBA500FF043F /* SignInViewController.swift */; };
+		CC8880392A4DEBB200FF043F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880382A4DEBB200FF043F /* SignUpViewController.swift */; };
+		CC8880442A4DF4C800FF043F /* GmailTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880432A4DF4C800FF043F /* GmailTabBarController.swift */; };
+		CC8880462A4DF4F200FF043F /* MailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880452A4DF4F200FF043F /* MailsViewController.swift */; };
+		CC8880482A4DF52C00FF043F /* MeetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880472A4DF52C00FF043F /* MeetsViewController.swift */; };
+		CC88804B2A4DFC7400FF043F /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88804A2A4DFC7400FF043F /* Mail.swift */; };
+		CC8880572A4E00EB00FF043F /* MailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880552A4E00EB00FF043F /* MailsHeaderView.swift */; };
+		CC8880582A4E00EB00FF043F /* MailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8880562A4E00EB00FF043F /* MailsHeaderView.xib */; };
+		CC88805B2A4E083500FF043F /* GmailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880592A4E083500FF043F /* GmailsCell.swift */; };
+		CC88805C2A4E083500FF043F /* GmailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88805A2A4E083500FF043F /* GmailsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +33,17 @@
 		CC88800F2A4DBE4400FF043F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8880122A4DBE4400FF043F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8880142A4DBE4400FF043F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC88801F2A4DBF5D00FF043F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		CC8880232A4DCC6800FF043F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		CC8880322A4DE95500FF043F /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		CC8880362A4DEBA500FF043F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CC8880382A4DEBB200FF043F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CC8880432A4DF4C800FF043F /* GmailTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GmailTabBarController.swift; sourceTree = "<group>"; };
+		CC8880452A4DF4F200FF043F /* MailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailsViewController.swift; sourceTree = "<group>"; };
+		CC8880472A4DF52C00FF043F /* MeetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetsViewController.swift; sourceTree = "<group>"; };
+		CC88804A2A4DFC7400FF043F /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
+		CC8880552A4E00EB00FF043F /* MailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailsHeaderView.swift; sourceTree = "<group>"; };
+		CC8880562A4E00EB00FF043F /* MailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailsHeaderView.xib; sourceTree = "<group>"; };
+		CC8880592A4E083500FF043F /* GmailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GmailsCell.swift; sourceTree = "<group>"; };
+		CC88805A2A4E083500FF043F /* GmailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GmailsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +78,13 @@
 			children = (
 				CC8880062A4DBE4300FF043F /* AppDelegate.swift */,
 				CC8880082A4DBE4300FF043F /* SceneDelegate.swift */,
+				CC8880342A4DEB3300FF043F /* Registration */,
+				CC88803A2A4DEE2200FF043F /* GmailHome */,
 				CC88801A2A4DBEC100FF043F /* Controllers */,
-				CC88801B2A4DBECD00FF043F /* Views */,
 				CC88801C2A4DBEEA00FF043F /* Models */,
-				CC88801D2A4DBEF300FF043F /* Helpers */,
-				CC88801E2A4DBF0500FF043F /* Resources */,
+				CC88800C2A4DBE4300FF043F /* Main.storyboard */,
+				CC88800F2A4DBE4400FF043F /* Assets.xcassets */,
+				CC8880112A4DBE4400FF043F /* LaunchScreen.storyboard */,
 				CC8880142A4DBE4400FF043F /* Info.plist */,
 			);
 			path = Gmail;
@@ -73,17 +93,8 @@
 		CC88801A2A4DBEC100FF043F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CC88801F2A4DBF5D00FF043F /* SignInViewController.swift */,
-				CC8880232A4DCC6800FF043F /* CreateAccountViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		CC88801B2A4DBECD00FF043F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		CC88801C2A4DBEEA00FF043F /* Models */ = {
@@ -93,21 +104,45 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		CC88801D2A4DBEF300FF043F /* Helpers */ = {
+		CC8880342A4DEB3300FF043F /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				CC8880322A4DE95500FF043F /* Registration.storyboard */,
+				CC8880362A4DEBA500FF043F /* SignInViewController.swift */,
+				CC8880382A4DEBB200FF043F /* SignUpViewController.swift */,
 			);
-			path = Helpers;
+			path = Registration;
 			sourceTree = "<group>";
 		};
-		CC88801E2A4DBF0500FF043F /* Resources */ = {
+		CC88803A2A4DEE2200FF043F /* GmailHome */ = {
 			isa = PBXGroup;
 			children = (
-				CC88800C2A4DBE4300FF043F /* Main.storyboard */,
-				CC88800F2A4DBE4400FF043F /* Assets.xcassets */,
-				CC8880112A4DBE4400FF043F /* LaunchScreen.storyboard */,
+				CC88804E2A4DFE0200FF043F /* Views */,
+				CC8880492A4DFC5B00FF043F /* Models */,
+				CC8880432A4DF4C800FF043F /* GmailTabBarController.swift */,
+				CC8880452A4DF4F200FF043F /* MailsViewController.swift */,
+				CC8880472A4DF52C00FF043F /* MeetsViewController.swift */,
 			);
-			path = Resources;
+			path = GmailHome;
+			sourceTree = "<group>";
+		};
+		CC8880492A4DFC5B00FF043F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC88804A2A4DFC7400FF043F /* Mail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC88804E2A4DFE0200FF043F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC8880552A4E00EB00FF043F /* MailsHeaderView.swift */,
+				CC8880562A4E00EB00FF043F /* MailsHeaderView.xib */,
+				CC8880592A4E083500FF043F /* GmailsCell.swift */,
+				CC88805A2A4E083500FF043F /* GmailsCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,8 +203,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC88805C2A4E083500FF043F /* GmailsCell.xib in Resources */,
 				CC8880132A4DBE4400FF043F /* LaunchScreen.storyboard in Resources */,
+				CC8880332A4DE95500FF043F /* Registration.storyboard in Resources */,
 				CC8880102A4DBE4400FF043F /* Assets.xcassets in Resources */,
+				CC8880582A4E00EB00FF043F /* MailsHeaderView.xib in Resources */,
 				CC88800E2A4DBE4300FF043F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,10 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC8880242A4DCC6800FF043F /* CreateAccountViewController.swift in Sources */,
-				CC8880202A4DBF5D00FF043F /* SignInViewController.swift in Sources */,
+				CC88804B2A4DFC7400FF043F /* Mail.swift in Sources */,
+				CC8880442A4DF4C800FF043F /* GmailTabBarController.swift in Sources */,
+				CC88805B2A4E083500FF043F /* GmailsCell.swift in Sources */,
 				CC8880072A4DBE4300FF043F /* AppDelegate.swift in Sources */,
+				CC8880462A4DF4F200FF043F /* MailsViewController.swift in Sources */,
+				CC8880572A4E00EB00FF043F /* MailsHeaderView.swift in Sources */,
 				CC8880092A4DBE4300FF043F /* SceneDelegate.swift in Sources */,
+				CC8880392A4DEBB200FF043F /* SignUpViewController.swift in Sources */,
+				CC8880372A4DEBA500FF043F /* SignInViewController.swift in Sources */,
+				CC8880482A4DF52C00FF043F /* MeetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
