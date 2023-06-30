@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E71-Vv-8rH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QO6-Kh-MBv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppi-WD-egu">
-                                <rect key="frame" x="78.666666666666671" y="268" width="235.66666666666663" height="341"/>
+                                <rect key="frame" x="78.666666666666671" y="290" width="235.66666666666663" height="341"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gmail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bft-53-gmc">
                                         <rect key="frame" x="0.0" y="170.66666666666669" width="235.66666666666666" height="170.33333333333331"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o6-pT-aHx">
-                                <rect key="frame" x="160.66666666666666" y="733" width="72" height="34"/>
+                                <rect key="frame" x="160.66666666666666" y="755" width="72" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="cW5-7b-1qH"/>
                                     <constraint firstAttribute="height" constant="34" id="vBo-lO-FMR"/>
@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDX-VO-Kg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.70229007633588" y="422.53521126760563"/>
+            <point key="canvasLocation" x="1824" y="423"/>
         </scene>
         <!--Add Account View Controller-->
         <scene sceneID="cvx-0D-wnB">
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oG-Uz-0GV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.52671755725191" y="422.53521126760563"/>
+            <point key="canvasLocation" x="2524" y="423"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="Dq1-Gh-reH">
@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVT-SH-AEf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136.6412213740459" y="422.53521126760563"/>
+            <point key="canvasLocation" x="1824" y="1106"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="4il-kB-BSH">
@@ -365,7 +365,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeG-E6-LSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857.2519083969464" y="424.64788732394368"/>
+            <point key="canvasLocation" x="2523" y="1106"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Hh-F5-EsU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QO6-Kh-MBv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6DK-Po-7Qc">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E71-Vv-8rH" kind="relationship" relationship="rootViewController" id="s1V-v9-7dM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Bs-72-0cU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095.4198473282443" y="422.53521126760563"/>
         </scene>
     </scenes>
     <resources>

@@ -28,6 +28,10 @@
 		CC8880722A4E4F0B00FF043F /* Meets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880712A4E4F0B00FF043F /* Meets.swift */; };
 		CC8880742A4E999700FF043F /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880732A4E999700FF043F /* AddAccountViewController.swift */; };
 		CC8880762A4E9BDB00FF043F /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880752A4E9BDB00FF043F /* HelloViewController.swift */; };
+		CC8880792A4EAEA600FF043F /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880782A4EAEA600FF043F /* AddAccount.swift */; };
+		CC8880832A4EB84400FF043F /* AddAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880812A4EB84400FF043F /* AddAccountCell.swift */; };
+		CC8880842A4EB84400FF043F /* AddAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8880822A4EB84400FF043F /* AddAccountCell.xib */; };
+		CC88808F2A4ECEA900FF043F /* PrewiewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88808E2A4ECEA800FF043F /* PrewiewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		CC8880712A4E4F0B00FF043F /* Meets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meets.swift; sourceTree = "<group>"; };
 		CC8880732A4E999700FF043F /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		CC8880752A4E9BDB00FF043F /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
+		CC8880782A4EAEA600FF043F /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
+		CC8880812A4EB84400FF043F /* AddAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountCell.swift; sourceTree = "<group>"; };
+		CC8880822A4EB84400FF043F /* AddAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountCell.xib; sourceTree = "<group>"; };
+		CC88808E2A4ECEA800FF043F /* PrewiewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrewiewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +128,11 @@
 				CC8880322A4DE95500FF043F /* Registration.storyboard */,
 				CC8880752A4E9BDB00FF043F /* HelloViewController.swift */,
 				CC8880732A4E999700FF043F /* AddAccountViewController.swift */,
+				CC88808E2A4ECEA800FF043F /* PrewiewViewController.swift */,
 				CC8880362A4DEBA500FF043F /* SignInViewController.swift */,
 				CC8880382A4DEBB200FF043F /* SignUpViewController.swift */,
+				CC8880772A4EAE9800FF043F /* Model */,
+				CC8880802A4EB4A700FF043F /* Views */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -192,6 +203,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CC8880772A4EAE9800FF043F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC8880782A4EAEA600FF043F /* AddAccount.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC8880802A4EB4A700FF043F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC8880812A4EB84400FF043F /* AddAccountCell.swift */,
+				CC8880822A4EB84400FF043F /* AddAccountCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC88805C2A4E083500FF043F /* GmailsCell.xib in Resources */,
+				CC8880842A4EB84400FF043F /* AddAccountCell.xib in Resources */,
 				CC8880132A4DBE4400FF043F /* LaunchScreen.storyboard in Resources */,
 				CC8880332A4DE95500FF043F /* Registration.storyboard in Resources */,
 				CC88806C2A4E1AEA00FF043F /* MeetsCell.xib in Resources */,
@@ -272,9 +301,12 @@
 				CC88804B2A4DFC7400FF043F /* Gmail.swift in Sources */,
 				CC8880442A4DF4C800FF043F /* GmailTabBarController.swift in Sources */,
 				CC88805B2A4E083500FF043F /* GmailsCell.swift in Sources */,
+				CC8880832A4EB84400FF043F /* AddAccountCell.swift in Sources */,
 				CC8880072A4DBE4300FF043F /* AppDelegate.swift in Sources */,
+				CC8880792A4EAEA600FF043F /* AddAccount.swift in Sources */,
 				CC8880462A4DF4F200FF043F /* GmailsViewController.swift in Sources */,
 				CC8880572A4E00EB00FF043F /* GmailsHeaderView.swift in Sources */,
+				CC88808F2A4ECEA900FF043F /* PrewiewViewController.swift in Sources */,
 				CC8880092A4DBE4300FF043F /* SceneDelegate.swift in Sources */,
 				CC8880762A4E9BDB00FF043F /* HelloViewController.swift in Sources */,
 				CC8880392A4DEBB200FF043F /* SignUpViewController.swift in Sources */,

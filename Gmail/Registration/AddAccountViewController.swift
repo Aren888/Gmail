@@ -7,68 +7,64 @@
 
 import UIKit
 
-import UIKit
-
-class AddAccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class AddAccountViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    private var data: [AddAccount] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the data source and delegate of the table view to self
+        setUpData()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "AddAccountCell", bundle: nil), forCellReuseIdentifier: AddAccountCell.id)
+    }
+    
+    func setUpData() {
+        let myData: [AddAccount] = [
+            AddAccount(image: .googleImage, title: .google),
+            AddAccount(image: .iCloudImage, title: .iCloud),
+            AddAccount(image: .outlookImage, title: .outlookHotmailAndLive),
+            AddAccount(image: .officeImage, title: .office365),
+            AddAccount(image: .yahooImage, title: .yahoo),
+            AddAccount(image: .otherImage, title: .otherImap)
+        ]
+        
+        data = myData
     }
     
     @IBAction func back(_ sender: Any) {
-        // Handle back button action
+        self.dismiss(animated: true)
     }
+}
+
+extension AddAccountViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the table view
-        return 5 // Replace with the actual number of rows you want to display
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        
-        // Configure the cell with the necessary data
-        cell.textLabel?.text = "Row \(indexPath.row + 1)"
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddAccountCell.id, for: indexPath) as! AddAccountCell
+        cell.configure(with: data[indexPath.row])
         return cell
     }
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle row selection
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedAccount = data[indexPath.row]
+        let previewViewController = PreviewViewController()
+        previewViewController.account = selectedAccount
         
-        // Perform any necessary actions when a row is selected
-        let selectedRow = indexPath.row
-        print("Selected Row: \(selectedRow)")
+        // Present the preview view controller
+        present(previewViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Specify the height of each row
-        return 44.0 // Replace with your desired row height
+        return 56
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // Return a custom view for the header of the section
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.lightGray
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // Specify the height of the header for the section
-        return 30.0 // Replace with your desired header height
-    }
-    
-    // Add more UITableViewDelegate methods as needed
-    
 }

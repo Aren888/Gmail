@@ -14,11 +14,10 @@ class HelloViewController: UIViewController {
         
     }
     @IBAction func signInAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Registration", bundle: nil)
-        if let addAccountViewController = storyboard.instantiateViewController(withIdentifier: "AddAccountViewControllerID") as? AddAccountViewController {
-            present(addAccountViewController, animated: true, completion: nil)
-        }
+        
+        let addAccountVC = storyboard?.instantiateViewController(withIdentifier: "AddAccountViewControllerID") as! AddAccountViewController
+        let navigationController = UINavigationController(rootViewController: addAccountVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
-    
-    
 }
