@@ -98,28 +98,12 @@
 				CC8880082A4DBE4300FF043F /* SceneDelegate.swift */,
 				CC8880342A4DEB3300FF043F /* Registration */,
 				CC88803A2A4DEE2200FF043F /* GmailHome */,
-				CC88801A2A4DBEC100FF043F /* Controllers */,
-				CC88801C2A4DBEEA00FF043F /* Models */,
 				CC88800C2A4DBE4300FF043F /* Main.storyboard */,
 				CC88800F2A4DBE4400FF043F /* Assets.xcassets */,
 				CC8880112A4DBE4400FF043F /* LaunchScreen.storyboard */,
 				CC8880142A4DBE4400FF043F /* Info.plist */,
 			);
 			path = Gmail;
-			sourceTree = "<group>";
-		};
-		CC88801A2A4DBEC100FF043F /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		CC88801C2A4DBEEA00FF043F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		CC8880342A4DEB3300FF043F /* Registration */ = {

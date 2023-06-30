@@ -14,6 +14,9 @@ final class GmailsViewController: UIViewController {
     
     static let id = "GmailsViewControllerID"
     private let cellHeight: CGFloat = 70
+    private var spinnerTimer: Timer?
+    private var isSpinnerVisible = false
+
     
     // MARK: - UI Components
     
@@ -21,7 +24,6 @@ final class GmailsViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.collectionViewFlowLayout)
-        //        cv.register(MailCell.self, forCellWithReuseIdentifier: "cell")
         cv.register(UINib(nibName: GmailsCell.id, bundle: nil), forCellWithReuseIdentifier: GmailsCell.id)
         cv.register(UINib(nibName: GmailsHeaderView.id, bundle: nil),
                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -42,6 +44,13 @@ final class GmailsViewController: UIViewController {
         return collectionViewFlowLayout
     }()
     
+    private let loadingSpinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.color = .gray
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
+    
     private lazy var composeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("compose", for: .normal)
@@ -58,26 +67,26 @@ final class GmailsViewController: UIViewController {
     
     
     private let data: [Gmail] = [
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Important Announcement", subtitle: "From: company@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur urna ut magna gravida vestibulum.", date: "June 25, 2023 at 9:15 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Invitation to Event", subtitle: "From: eventorganizer@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus lacus sed ante tristique pretium.", date: "June 26, 2023 at 2:30 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Package Shipment Confirmation", subtitle: "From: shippingcompany@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget quam sed tellus congue consectetur.", date: "June 27, 2023 at 11:45 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Payment Receipt", subtitle: "From: payments@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper nisl sed pharetra cursus.", date: "June 28, 2023 at 5:20 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Job Application Status", subtitle: "From: hr@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur sollicitudin fermentum.", date: "June 29, 2023 at 9:10 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Vacation Booking Confirmation", subtitle: "From: travelagency@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo in enim elementum cursus.", date: "June 30, 2023 at 3:45 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Meeting Reminder", subtitle: "From: organizer@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae massa tristique, commodo purus nec.", date: "July 1, 2023 at 10:30 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "New Product Launch", subtitle: "From: marketing@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi auctor quam a risus ullamcorper.", date: "July 2, 2023 at 2:15 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Invoice Due Reminder", subtitle: "From: accounting@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis sed dolor tempor iaculis.", date: "July 3, 2023 at 9:45 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "New Project Proposal", subtitle: "From: client@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non ligula eleifend, mattis tortor sed.", date: "July 4, 2023 at 4:20 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Newsletter Subscription Confirmation", subtitle: "From: newsletter@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat ligula non turpis efficitur.", date: "July 5, 2023 at 11:10 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Password Reset Request", subtitle: "From: security@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu ligula et turpis lobortis.", date: "July 6, 2023 at 6:05 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Promotion Announcement", subtitle: "From: promotions@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim tortor ut orci tristique.", date: "July 7, 2023 at 1:55 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Event Registration Confirmation", subtitle: "From: events@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies velit in feugiat iaculis.", date: "July 8, 2023 at 8:40 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Task Assignment", subtitle: "From: manager@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur metus et sollicitudin cursus.", date: "July 9, 2023 at 3:30 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "New Feature Update", subtitle: "From: productteam@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit ipsum eget diam finibus.", date: "July 10, 2023 at 10:20 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Request for Feedback", subtitle: "From: feedback@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac eros vel lacus congue eleifend.", date: "July 11, 2023 at 5:15 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Membership Renewal Reminder", subtitle: "From: membership@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac diam faucibus, bibendum ex id.", date: "July 12, 2023 at 9:50 AM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Important Announcement", subtitle: "From: administrator@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a quam id lorem ultrices.", date: "July 13, 2023 at 4:40 PM"),
-        Gmail(image: UIImage(systemName: "person.circle")!, title: "Team Building Event Invitation", subtitle: "From: teambuilding@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus velit vitae elit varius.", date: "July 14, 2023 at 11:30 AM")
+        Gmail(image: UIImage(named: "user1")!, title: "Important Announcement", subtitle: "From: company@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur urna ut magna gravida vestibulum.", date: "June 25, 2023 at 9:15 AM"),
+        Gmail(image: UIImage(named: "user2")!, title: "Invitation to Event", subtitle: "From: eventorganizer@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus lacus sed ante tristique pretium.", date: "June 26, 2023 at 2:30 PM"),
+        Gmail(image: UIImage(named: "user3")!, title: "Package Shipment Confirmation", subtitle: "From: shippingcompany@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget quam sed tellus congue consectetur.", date: "June 27, 2023 at 11:45 AM"),
+        Gmail(image: UIImage(named: "user4")!, title: "Payment Receipt", subtitle: "From: payments@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper nisl sed pharetra cursus.", date: "June 28, 2023 at 5:20 PM"),
+        Gmail(image: UIImage(named: "user5")!, title: "Job Application Status", subtitle: "From: hr@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur sollicitudin fermentum.", date: "June 29, 2023 at 9:10 AM"),
+        Gmail(image: UIImage(named: "user6")!, title: "Vacation Booking Confirmation", subtitle: "From: travelagency@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo in enim elementum cursus.", date: "June 30, 2023 at 3:45 PM"),
+        Gmail(image: UIImage(named: "user7")!, title: "Meeting Reminder", subtitle: "From: organizer@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae massa tristique, commodo purus nec.", date: "July 1, 2023 at 10:30 AM"),
+        Gmail(image: UIImage(named: "user8")!, title: "New Product Launch", subtitle: "From: marketing@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi auctor quam a risus ullamcorper.", date: "July 2, 2023 at 2:15 PM"),
+        Gmail(image: UIImage(named: "user1")!, title: "Invoice Due Reminder", subtitle: "From: accounting@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis sed dolor tempor iaculis.", date: "July 3, 2023 at 9:45 AM"),
+        Gmail(image: UIImage(named: "user2")!, title: "New Project Proposal", subtitle: "From: client@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non ligula eleifend, mattis tortor sed.", date: "July 4, 2023 at 4:20 PM"),
+        Gmail(image: UIImage(named: "user3")!, title: "Newsletter Subscription Confirmation", subtitle: "From: newsletter@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat ligula non turpis efficitur.", date: "July 5, 2023 at 11:10 AM"),
+        Gmail(image: UIImage(named: "user4")!, title: "Password Reset Request", subtitle: "From: security@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu ligula et turpis lobortis.", date: "July 6, 2023 at 6:05 PM"),
+        Gmail(image: UIImage(named: "user5")!, title: "Promotion Announcement", subtitle: "From: promotions@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim tortor ut orci tristique.", date: "July 7, 2023 at 1:55 PM"),
+        Gmail(image: UIImage(named: "user6")!, title: "Event Registration Confirmation", subtitle: "From: events@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies velit in feugiat iaculis.", date: "July 8, 2023 at 8:40 AM"),
+        Gmail(image: UIImage(named: "user7")!, title: "Task Assignment", subtitle: "From: manager@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur metus et sollicitudin cursus.", date: "July 9, 2023 at 3:30 PM"),
+        Gmail(image: UIImage(named: "user8")!, title: "New Feature Update", subtitle: "From: productteam@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit ipsum eget diam finibus.", date: "July 10, 2023 at 10:20 AM"),
+        Gmail(image: UIImage(named: "user1")!, title: "Request for Feedback", subtitle: "From: feedback@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac eros vel lacus congue eleifend.", date: "July 11, 2023 at 5:15 PM"),
+        Gmail(image: UIImage(named: "user2")!, title: "Membership Renewal Reminder", subtitle: "From: membership@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac diam faucibus, bibendum ex id.", date: "July 12, 2023 at 9:50 AM"),
+        Gmail(image: UIImage(named: "user3")!, title: "Important Announcement", subtitle: "From: administrator@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a quam id lorem ultrices.", date: "July 13, 2023 at 4:40 PM"),
+        Gmail(image: UIImage(named: "user4")!, title: "Team Building Event Invitation", subtitle: "From: teambuilding@examplecompany.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus velit vitae elit varius.", date: "July 14, 2023 at 11:30 AM")
     ]
     
     // MARK: - Lifecycle
@@ -85,6 +94,13 @@ final class GmailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        collectionView.delegate = self
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        stopTimer()
     }
     
     override func viewWillLayoutSubviews() {
@@ -100,6 +116,13 @@ final class GmailsViewController: UIViewController {
         setupButton()
 
         mailsContainerView.addSubview(collectionView)
+        collectionView.addSubview(loadingSpinner)
+        loadingSpinner.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            loadingSpinner.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            loadingSpinner.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 30)
+        ])
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         [collectionView.topAnchor.constraint(equalTo: mailsContainerView.topAnchor),
@@ -114,9 +137,7 @@ final class GmailsViewController: UIViewController {
         
         let penImage = UIImage(systemName: "pencil")?.withRenderingMode(.alwaysTemplate)
         composeButton.setImage(penImage, for: .normal)
-        composeButton.tintColor = .red
-        composeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
-        
+        composeButton.tintColor = .red        
         composeButton.setTitleColor(.red, for: .normal)
         
         NSLayoutConstraint.activate([
@@ -133,10 +154,6 @@ final class GmailsViewController: UIViewController {
         composeButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         composeButton.layer.shadowRadius = 4
     }
-
-
-
-
     
     // MARK: - Selectors
     
@@ -147,7 +164,7 @@ final class GmailsViewController: UIViewController {
 
 extension GmailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO
+
     }
 }
 
@@ -177,5 +194,41 @@ extension GmailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let inset = (collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
         return CGSize(width: collectionView.frame.width - inset.left - inset.right, height: cellHeight)
+    }
+}
+extension GmailsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - scrollViewHeight && !isSpinnerVisible {
+            showLoadingSpinner()
+            startTimer()
+            // Load more data or perform any asynchronous tasks
+            // When the data loading is complete, call hideLoadingSpinner()
+        }
+    }
+    
+    private func showLoadingSpinner() {
+        isSpinnerVisible = true
+        loadingSpinner.startAnimating()
+    }
+    
+    private func hideLoadingSpinner() {
+        isSpinnerVisible = false
+        loadingSpinner.stopAnimating()
+    }
+    
+    private func startTimer() {
+        spinnerTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
+            self?.hideLoadingSpinner()
+            self?.spinnerTimer = nil
+        }
+    }
+    
+    private func stopTimer() {
+        spinnerTimer?.invalidate()
+        spinnerTimer = nil
     }
 }

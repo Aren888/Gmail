@@ -19,6 +19,8 @@ class GmailsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.layer.masksToBounds = translatesAutoresizingMaskIntoConstraints
         // Initialization code
     }
     
