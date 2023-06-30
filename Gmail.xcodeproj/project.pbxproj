@@ -32,6 +32,8 @@
 		CC8880832A4EB84400FF043F /* AddAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880812A4EB84400FF043F /* AddAccountCell.swift */; };
 		CC8880842A4EB84400FF043F /* AddAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8880822A4EB84400FF043F /* AddAccountCell.xib */; };
 		CC88808F2A4ECEA900FF043F /* PrewiewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88808E2A4ECEA800FF043F /* PrewiewViewController.swift */; };
+		CC8880922A4EDB5500FF043F /* GmailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880912A4EDB5500FF043F /* GmailComposeViewController.swift */; };
+		CC8880942A4EF2FD00FF043F /* TheSentLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880932A4EF2FD00FF043F /* TheSentLetterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		CC8880812A4EB84400FF043F /* AddAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountCell.swift; sourceTree = "<group>"; };
 		CC8880822A4EB84400FF043F /* AddAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountCell.xib; sourceTree = "<group>"; };
 		CC88808E2A4ECEA800FF043F /* PrewiewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrewiewViewController.swift; sourceTree = "<group>"; };
+		CC8880912A4EDB5500FF043F /* GmailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GmailComposeViewController.swift; sourceTree = "<group>"; };
+		CC8880932A4EF2FD00FF043F /* TheSentLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSentLetterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CC8880432A4DF4C800FF043F /* GmailTabBarController.swift */,
+				CC8880902A4EDB1A00FF043F /* Compose */,
 				CC88805E2A4E168D00FF043F /* Gmails */,
 				CC88805F2A4E16E000FF043F /* Meets */,
 			);
@@ -154,8 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				CC8880452A4DF4F200FF043F /* GmailsViewController.swift */,
-				CC88804E2A4DFE0200FF043F /* Views */,
+				CC8880932A4EF2FD00FF043F /* TheSentLetterViewController.swift */,
 				CC8880492A4DFC5B00FF043F /* Models */,
+				CC88804E2A4DFE0200FF043F /* Views */,
 			);
 			path = Gmails;
 			sourceTree = "<group>";
@@ -202,6 +208,14 @@
 				CC8880822A4EB84400FF043F /* AddAccountCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CC8880902A4EDB1A00FF043F /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				CC8880912A4EDB5500FF043F /* GmailComposeViewController.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +296,9 @@
 			files = (
 				CC8880722A4E4F0B00FF043F /* Meets.swift in Sources */,
 				CC88806B2A4E1AEA00FF043F /* MeetsCell.swift in Sources */,
+				CC8880922A4EDB5500FF043F /* GmailComposeViewController.swift in Sources */,
 				CC88804B2A4DFC7400FF043F /* Gmail.swift in Sources */,
+				CC8880942A4EF2FD00FF043F /* TheSentLetterViewController.swift in Sources */,
 				CC8880442A4DF4C800FF043F /* GmailTabBarController.swift in Sources */,
 				CC88805B2A4E083500FF043F /* GmailsCell.swift in Sources */,
 				CC8880832A4EB84400FF043F /* AddAccountCell.swift in Sources */,

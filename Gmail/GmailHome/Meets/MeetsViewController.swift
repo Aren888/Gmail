@@ -12,6 +12,7 @@ final class MeetsViewController: UIViewController {
     @IBOutlet weak var MeetsContainerView: UIView!
     @IBOutlet weak var newMeetingButton: UIButton!
     @IBOutlet weak var joinWithCodeButton: UIButton!
+    @IBOutlet weak var profile: UIImageView!
     
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.collectionViewFlowLayout)
@@ -68,6 +69,9 @@ final class MeetsViewController: UIViewController {
           
           joinWithCodeButton.layer.cornerRadius = joinWithCodeButton.bounds.height / 2
           joinWithCodeButton.clipsToBounds = true
+        
+        profile.layer.cornerRadius = profile.bounds.height / 2
+        profile.clipsToBounds = true
       }
     
     
@@ -77,10 +81,44 @@ final class MeetsViewController: UIViewController {
     
     @IBAction func newMeetingAction(_ sender: Any) {
         // Handle new meeting action
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            // Add actions
+            alertController.addAction(UIAlertAction(title: "Get a meeting link to share", style: .default))
+            alertController.addAction(UIAlertAction(title: "Start an instant meeting", style: .default))
+            alertController.addAction(UIAlertAction(title: "Schedule in Google Calendar", style: .default))
+            
+            // Add a cancel action
+            alertController.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            
+            // Present the alert
+            present(alertController, animated: true, completion: nil)
+        
     }
     
     @IBAction func joinWithCodeAction(_ sender: Any) {
         // Handle join with code action
+        let alertController = UIAlertController(title: "Join Meeting", message: "Enter the code provided by the meeting organizer", preferredStyle: .alert)
+            
+            // Add a text field to the alert
+            alertController.addTextField { textField in
+                textField.placeholder = "Meeting code"
+            }
+            
+            // Add a cancel action
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            // Add a join action
+            alertController.addAction(UIAlertAction(title: "Join", style: .default) { _ in
+                // Retrieve the entered meeting code from the text field
+                if let meetingCode = alertController.textFields?.first?.text {
+                    // Perform the join action with the entered meeting code
+                    // TODO: Implement the join action with the meeting code
+                }
+            })
+            
+            // Present the alert
+            present(alertController, animated: true, completion: nil)
     }
 }
 

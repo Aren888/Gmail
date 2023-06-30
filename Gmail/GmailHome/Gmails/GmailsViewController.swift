@@ -6,17 +6,14 @@
 //
 
 import UIKit
-//import PureLayout
 
 final class GmailsViewController: UIViewController {
     
     // MARK: - Variables
-    
     static let id = "GmailsViewControllerID"
     private let cellHeight: CGFloat = 70
     private var spinnerTimer: Timer?
     private var isSpinnerVisible = false
-
     
     // MARK: - UI Components
     
@@ -55,7 +52,7 @@ final class GmailsViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("compose", for: .normal)
         button.backgroundColor = .white
-   
+        
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
@@ -64,7 +61,6 @@ final class GmailsViewController: UIViewController {
     @objc private func buttonTapped() {
         // Handle button tap event
     }
-    
     
     private let data: [Gmail] = [
         Gmail(image: UIImage(named: "user1")!, title: "Important Announcement", subtitle: "From: company@example.com", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur urna ut magna gravida vestibulum.", date: "June 25, 2023 at 9:15 AM"),
@@ -95,7 +91,6 @@ final class GmailsViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         collectionView.delegate = self
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,17 +103,16 @@ final class GmailsViewController: UIViewController {
         collectionViewFlowLayout.invalidateLayout()
     }
     
-    
     // MARK: - UI Setup
     
     private func setupCollectionView() {
         
         setupButton()
-
+        
         mailsContainerView.addSubview(collectionView)
         collectionView.addSubview(loadingSpinner)
         loadingSpinner.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             loadingSpinner.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
             loadingSpinner.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 30)
@@ -137,7 +131,7 @@ final class GmailsViewController: UIViewController {
         
         let penImage = UIImage(systemName: "pencil")?.withRenderingMode(.alwaysTemplate)
         composeButton.setImage(penImage, for: .normal)
-        composeButton.tintColor = .red        
+        composeButton.tintColor = .red
         composeButton.setTitleColor(.red, for: .normal)
         
         NSLayoutConstraint.activate([
@@ -148,14 +142,21 @@ final class GmailsViewController: UIViewController {
         ])
         
         composeButton.layer.cornerRadius = 26
-        
         composeButton.layer.shadowColor = UIColor.black.cgColor
         composeButton.layer.shadowOpacity = 0.2
         composeButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         composeButton.layer.shadowRadius = 4
+        
+        composeButton.addTarget(self, action: #selector(composeButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - Selectors
+    
+    @objc private func composeButtonTapped() {
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "GmailComposeViewControllerID") as? GmailComposeViewController
+        present(vc!, animated: true)
+    }
     
     func configVC() {
         tabBarItem.image = UIImage(systemName: "envelope.fill")
@@ -164,7 +165,16 @@ final class GmailsViewController: UIViewController {
 
 extension GmailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let selectedGmail = data[indexPath.row]
+        
+        let sentLetterVC = TheSentLetterViewController()
+        sentLetterVC.image = selectedGmail.image
+        sentLetterVC.titleText = selectedGmail.title
+        sentLetterVC.subtitle = selectedGmail.subtitle
+        sentLetterVC.descriptionText = selectedGmail.description
+        sentLetterVC.date = selectedGmail.date
+        
+        present(sentLetterVC, animated: true)
     }
 }
 
@@ -205,8 +215,6 @@ extension GmailsViewController: UIScrollViewDelegate {
         if offsetY > contentHeight - scrollViewHeight && !isSpinnerVisible {
             showLoadingSpinner()
             startTimer()
-            // Load more data or perform any asynchronous tasks
-            // When the data loading is complete, call hideLoadingSpinner()
         }
     }
     
