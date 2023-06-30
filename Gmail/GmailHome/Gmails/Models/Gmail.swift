@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Mail {
+struct Gmail {
     let image: UIImage
     let title: String
     let subtitle: String

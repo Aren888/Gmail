@@ -10,7 +10,7 @@ import UIKit
 
 final class GmailTabBarController: UITabBarController {
     
-    private var mailsVC: MailsViewController?
+    private var mailsVC: GmailsViewController?
     private var meetsVC: MeetsViewController?
     
     private var mainStoryBoard: UIStoryboard {
@@ -29,13 +29,7 @@ final class GmailTabBarController: UITabBarController {
     private func setupView() {
         tabBar.layer.backgroundColor = UIColor.white.cgColor
         tabBar.backgroundColor = UIColor.white
-//        if #available(iOS 13.0, *) {
-//            let appearance = tabBar.standardAppearance
-//            appearance.shadowImage = nil
-//            appearance.shadowColor = nil
-//            tabBar.standardAppearance = appearance;
-//        }
-        
+
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
         
@@ -50,14 +44,13 @@ final class GmailTabBarController: UITabBarController {
     }
     
     private func setupMailsViewController() {
-        mailsVC = mainStoryBoard.instantiateViewController(withIdentifier: MailsViewController.id) as? MailsViewController
+        mailsVC = mainStoryBoard.instantiateViewController(withIdentifier: GmailsViewController.id) as? GmailsViewController
         mailsVC?.configVC()
     }
     
 
     private func setupMeetsViewController() {
         meetsVC = mainStoryBoard.instantiateViewController(withIdentifier: MeetsViewController.id) as? MeetsViewController
-        meetsVC?.view.backgroundColor = .blue
         meetsVC?.configVC()
     }
     
@@ -68,5 +61,9 @@ final class GmailTabBarController: UITabBarController {
             vcs.append(meetsVC)
         }
         viewControllers = vcs
+        
+        let appearance = UITabBarItem.appearance()
+        appearance.setTitleTextAttributes([.foregroundColor: UIColor.red], for: .selected)
+        appearance.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
     }
 }

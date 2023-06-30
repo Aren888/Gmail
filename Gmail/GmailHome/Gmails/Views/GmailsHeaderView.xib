@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GmailsHeaderView" id="U6b-Vx-4bR" customClass="GmailsHeaderView" customModule="Gmail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-ed-0Dx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bXS-nF-yv0">
+                            <rect key="frame" x="54" y="0.0" width="212" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="vsN-kx-uuB"/>
+                            </constraints>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u3-X4-7cv">
+                            <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="2eP-2m-4zN"/>
+                                <constraint firstAttribute="width" constant="54" id="qtw-9t-KOC"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system"/>
+                            <connections>
+                                <action selector="menu:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="n1h-i8-qS9"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u3O-vB-fUf">
+                            <rect key="frame" x="266" y="1" width="54" height="52.666666666666671"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="EBg-qp-em5"/>
+                                <constraint firstAttribute="width" constant="54" id="xN3-0r-ohm"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="u3O-vB-fUf" secondAttribute="trailing" id="2gN-Yp-GHX"/>
+                        <constraint firstItem="bXS-nF-yv0" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="BOZ-Ej-tt2"/>
+                        <constraint firstItem="bXS-nF-yv0" firstAttribute="leading" secondItem="3u3-X4-7cv" secondAttribute="trailing" id="Ev3-T5-dU9"/>
+                        <constraint firstItem="3u3-X4-7cv" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="PgJ-Vs-w1h"/>
+                        <constraint firstItem="u3O-vB-fUf" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="XUC-Tb-bhq"/>
+                        <constraint firstItem="u3O-vB-fUf" firstAttribute="leading" secondItem="bXS-nF-yv0" secondAttribute="trailing" id="XcQ-li-NVW"/>
+                        <constraint firstItem="3u3-X4-7cv" firstAttribute="leading" secondItem="lEE-ed-0Dx" secondAttribute="leading" id="x19-4E-Utz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lEE-ed-0Dx" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="2Eo-op-48Q"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="lEE-ed-0Dx" secondAttribute="trailing" id="WLf-2U-baE"/>
+                <constraint firstAttribute="bottom" secondItem="lEE-ed-0Dx" secondAttribute="bottom" id="bbk-3F-Wzl"/>
+                <constraint firstItem="lEE-ed-0Dx" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="dU1-fY-CYB"/>
+            </constraints>
+            <connections>
+                <outlet property="profileImage" destination="u3O-vB-fUf" id="jzS-Lo-qWD"/>
+                <outlet property="searchBar" destination="bXS-nF-yv0" id="SaU-4g-NPV"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="58.802816901408455"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B66A73BE-2A2B-466F-9729-B3D34605B0B8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11E29E30-662B-42AE-8B50-861E315663AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gmail/GmailHome/Meets/Views/MeetsHeaderView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "11E29E30-662B-42AE-8B50-861E315663AD - 40940f5e17cb8728"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Gmail.MeetsHeaderView.awakeFromNib() -&gt; ()"
+                  moduleName = "Gmail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arenmusayelyan/Documents/Gmail/Gmail/GmailHome/Meets/Views/MeetsHeaderView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "11E29E30-662B-42AE-8B50-861E315663AD - 40940f5e17cb8728"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Gmail.MeetsHeaderView.awakeFromNib() -&gt; ()"
+                  moduleName = "Gmail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arenmusayelyan/Documents/Gmail/Gmail/GmailHome/Meets/Views/MeetsHeaderView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

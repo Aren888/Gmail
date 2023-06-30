@@ -29,7 +29,7 @@ class GmailsCell: UICollectionViewCell {
         descriptionLabel.text = nil
     }
     
-    func configure(with mail: Mail) {
+    func configure(with mail: Gmail) {
         imageView.image = mail.image
         titlelabel.text = mail.title
         subTitleLabel.text = mail.subtitle
