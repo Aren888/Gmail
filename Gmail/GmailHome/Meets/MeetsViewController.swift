@@ -8,7 +8,11 @@
 import UIKit
 
 final class MeetsViewController: UIViewController {
+    
+    // MARK: - Variables
+    
     static let id = "MeetsViewControllerID"
+    
     @IBOutlet weak var MeetsContainerView: UIView!
     @IBOutlet weak var newMeetingButton: UIButton!
     @IBOutlet weak var joinWithCodeButton: UIButton!
@@ -38,20 +42,25 @@ final class MeetsViewController: UIViewController {
         Meets(image: UIImage(named: "image2")!, title: "Meeting 2", subTitle: "SubTitle 2")
     ]
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setCornerRadiusForButtons()
     }
     
-    func configVC() {
-        tabBarItem.image = UIImage(systemName: "video.fill")
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         collectionViewFlowLayout.invalidateLayout()
     }
+    
+    // MARK: - UI Setup
+    
+    func configVC() {
+        tabBarItem.image = UIImage(systemName: "video.fill")
+    }
+    
     
     private func setupCollectionView() {
         MeetsContainerView.addSubview(collectionView)
@@ -62,79 +71,72 @@ final class MeetsViewController: UIViewController {
          collectionView.trailingAnchor.constraint(equalTo: MeetsContainerView.trailingAnchor)].forEach({$0.isActive = true})
     }
     
-    
     private func setCornerRadiusForButtons() {
-          newMeetingButton.layer.cornerRadius = newMeetingButton.bounds.height / 2
-          newMeetingButton.clipsToBounds = true
-          
-          joinWithCodeButton.layer.cornerRadius = joinWithCodeButton.bounds.height / 2
-          joinWithCodeButton.clipsToBounds = true
+        newMeetingButton.layer.cornerRadius = newMeetingButton.bounds.height / 2
+        newMeetingButton.clipsToBounds = true
+        
+        joinWithCodeButton.layer.cornerRadius = joinWithCodeButton.bounds.height / 2
+        joinWithCodeButton.clipsToBounds = true
         
         profile.layer.cornerRadius = profile.bounds.height / 2
         profile.clipsToBounds = true
-      }
+    }
     
+    // MARK: - @IBAction
     
     @IBAction func menuAction(_ sender: Any) {
-        // Handle menu action
     }
     
     @IBAction func newMeetingAction(_ sender: Any) {
-        // Handle new meeting action
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            
-            // Add actions
-            alertController.addAction(UIAlertAction(title: "Get a meeting link to share", style: .default))
-            alertController.addAction(UIAlertAction(title: "Start an instant meeting", style: .default))
-            alertController.addAction(UIAlertAction(title: "Schedule in Google Calendar", style: .default))
-            
-            // Add a cancel action
-            alertController.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-            
-            // Present the alert
-            present(alertController, animated: true, completion: nil)
         
+        alertController.addAction(UIAlertAction(title: "Get a meeting link to share", style: .default))
+        alertController.addAction(UIAlertAction(title: "Start an instant meeting", style: .default))
+        alertController.addAction(UIAlertAction(title: "Schedule in Google Calendar", style: .default))
+        
+        alertController.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func joinWithCodeAction(_ sender: Any) {
-        // Handle join with code action
         let alertController = UIAlertController(title: "Join Meeting", message: "Enter the code provided by the meeting organizer", preferredStyle: .alert)
-            
-            // Add a text field to the alert
-            alertController.addTextField { textField in
-                textField.placeholder = "Meeting code"
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Meeting code"
+        }
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alertController.addAction(UIAlertAction(title: "Join", style: .default) { _ in
+            if let meetingCode = alertController.textFields?.first?.text {
+                // TODO: Implement the join action with the meeting code
             }
-            
-            // Add a cancel action
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            // Add a join action
-            alertController.addAction(UIAlertAction(title: "Join", style: .default) { _ in
-                // Retrieve the entered meeting code from the text field
-                if let meetingCode = alertController.textFields?.first?.text {
-                    // Perform the join action with the entered meeting code
-                    // TODO: Implement the join action with the meeting code
-                }
-            })
-            
-            // Present the alert
-            present(alertController, animated: true, completion: nil)
+        })
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
 extension MeetsViewController: UICollectionViewDelegateFlowLayout {
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
 }
 
 extension MeetsViewController: UICollectionViewDelegate {
+    // MARK: - UICollectionViewDelegate
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO
+        // TODO: Handle item selection
     }
 }
 
 extension MeetsViewController: UICollectionViewDataSource {
+    // MARK: - UICollectionViewDataSource
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return meetsData.count
     }

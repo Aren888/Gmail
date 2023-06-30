@@ -7,23 +7,25 @@
 
 import UIKit
 
-class GmailComposeViewController: UIViewController {
+final class GmailComposeViewController: UIViewController {
     
+    // MARK: - UI Components
     
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var composeTextView: UITextView!
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    
+    // MARK: - UI Setup
     
     private func setupUI() {
-        // Configure text fields
         toTextField.borderStyle = .roundedRect
         toTextField.layer.cornerRadius = 12
         toTextField.layer.masksToBounds = true
@@ -40,45 +42,41 @@ class GmailComposeViewController: UIViewController {
         subjectTextField.borderStyle = .roundedRect
         subjectTextField.layer.cornerRadius = 12
         subjectTextField.layer.masksToBounds = true
-        // Configure compose text view
+        
         composeTextView.font = UIFont.systemFont(ofSize: 16)
         composeTextView.layer.cornerRadius = 8
         composeTextView.layer.borderWidth = 1
         composeTextView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
+    // MARK: - Selectors
+    
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func choosefilesAction(_ sender: Any) {
+    @IBAction func chooseFilesAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Choose Files", message: "Select the files you want to attach.", preferredStyle: .alert)
-          
-          // Add actions
-          alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-          alertController.addAction(UIAlertAction(title: "Attach", style: .default, handler: { _ in
-              // Handle attach action
-              // Add your logic here to handle the attachment of files
-          }))
-          
-          // Present the alert
-          present(alertController, animated: true, completion: nil)
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Attach", style: .default, handler: { _ in
+        }))
+        
+        present(alertController, animated: true, completion: nil)
     }
-    
-    
     
     @IBAction func sendAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Send Email", message: "Are you sure you want to send this email?", preferredStyle: .alert)
-            
-            // Add actions
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alertController.addAction(UIAlertAction(title: "Send", style: .default, handler: { _ in
-                self.sendEmail()
-            }))
-            
-            // Present the alert
-            present(alertController, animated: true, completion: nil)
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Send", style: .default, handler: { _ in
+            self.sendEmail()
+        }))
+        
+        present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - Helper Methods
     
     private func sendEmail() {
         dismiss(animated: true, completion: nil)
@@ -86,16 +84,11 @@ class GmailComposeViewController: UIViewController {
     
     @IBAction func settingsAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Settings", message: "Configure your app settings.", preferredStyle: .alert)
-           
-           // Add actions
-           alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-           alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
-               // Handle save action
-               // Add your logic here to handle the saving of settings
-           }))
-           
-           // Present the alert
-           present(alertController, animated: true, completion: nil)
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+        }))
+        
+        present(alertController, animated: true, completion: nil)
     }
-    
 }

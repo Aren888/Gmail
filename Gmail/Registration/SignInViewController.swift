@@ -9,23 +9,17 @@ import UIKit
 import SafariServices
 
 final class SignInViewController: UIViewController {
-
     
     // MARK: - Variables
+    
     private let url = URL(string: "https://support.google.com/accounts/answer/2917834?visit_id=638236483447866119-3400749500&p=signin_privatebrowsing&hl=en&rd=1")
+    
     // MARK: - UI Components
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    // MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    // MARK: - @IBAction
+    // MARK: - Actions
     
     @IBAction func learnMoreAction(_ sender: Any) {
         guard let url = url else { return }
@@ -34,16 +28,20 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction func createAccountAction(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewControllerID") as! SignUpViewController
+        let storyBoard = UIStoryboard(name: "Registration", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewControllerID") as! SignUpViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func SignInAction(_ sender: Any) {
-        print("Sign In Action")
+    @IBAction func signInAction(_ sender: Any) {
+        performSegue(withIdentifier: "mainSegueID", sender: nil)
     }
     
-    // MARK: - UI Setup
-    
-    // MARK: - Selectors
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainSegueID" {
+            if let _ = segue.destination as? GmailTabBarController {
+                //TODO: Aren
+            }
+        }
+    }
 }

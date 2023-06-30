@@ -7,17 +7,16 @@
 
 import UIKit
 
-class HelloViewController: UIViewController {
+final class HelloViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     @IBAction func signInAction(_ sender: Any) {
         
         let addAccountVC = storyboard?.instantiateViewController(withIdentifier: "AddAccountViewControllerID") as! AddAccountViewController
-        let navigationController = UINavigationController(rootViewController: addAccountVC)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+        navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(addAccountVC, animated: true)
     }
 }

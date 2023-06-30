@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HpD-PK-2Da">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -43,7 +43,8 @@
         <!--Gmail Tab Bar Controller-->
         <scene sceneID="4gI-l9-Dr4">
             <objects>
-                <tabBarController id="HpD-PK-2Da" customClass="GmailTabBarController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="GmailTabBarController" id="HpD-PK-2Da" customClass="GmailTabBarController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="btr-DE-a1q"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ro8-oI-qbp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

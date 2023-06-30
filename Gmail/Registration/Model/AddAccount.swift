@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-
-struct AddAccount  {
+struct AddAccount {
     var image: SetUpImage
     var title: SetUpTitle
 }
@@ -38,11 +37,9 @@ enum SetUpImage: CaseIterable {
             return UIImage(named: "other")!
         }
     }
-    
 }
 
 enum SetUpTitle: CaseIterable {
-    
     case google
     case iCloud
     case outlookHotmailAndLive
@@ -53,24 +50,17 @@ enum SetUpTitle: CaseIterable {
     func addTitleAction() -> String {
         switch self {
         case .google:
-            // Handle Google account addition
             return "Google"
         case .iCloud:
-            // Handle iCloud account addition
             return "iCloud"
         case .outlookHotmailAndLive:
-            // Handle Outlook, Hotmail, and Live account addition
             return "Outlook, Hotmail and Live"
         case .office365:
-            // Handle Office 365 account addition
             return "Office 365"
         case .yahoo:
-            // Handle Yahoo account addition
             return "Yahoo"
         case .otherImap:
-            // Handle other IMAP account addition
             return "Other (IMAP)"
         }
     }
 }
-

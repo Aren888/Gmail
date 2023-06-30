@@ -7,9 +7,15 @@
 
 import UIKit
 
-class PreviewViewController: UIViewController {
+protocol PreviewViewControllerDelegate: AnyObject {
+    func continueButtonTapped(vc: PreviewViewController, account: AddAccount)
+}
+
+final class PreviewViewController: UIViewController {
     
     var account: AddAccount?
+    
+    weak var delegate: PreviewViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +55,6 @@ class PreviewViewController: UIViewController {
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(continueButton)
         
-        // Set up auto layout constraints for the continue button
         NSLayoutConstraint.activate([
             continueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             continueButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40)
@@ -57,12 +62,7 @@ class PreviewViewController: UIViewController {
     }
     
     @objc func continueButtonTapped() {
-
-        if account?.title.addTitleAction() == "Google" {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewControllerID") as! SignInViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                dismiss(animated: true, completion: nil)
-            }
+        guard let account = account else { return }
+        delegate?.continueButtonTapped(vc: self, account: account)
     }
 }

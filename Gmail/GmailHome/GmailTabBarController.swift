@@ -5,10 +5,11 @@
 //  Created by Aren Musayelyan on 29.06.23.
 //
 
-
 import UIKit
 
 final class GmailTabBarController: UITabBarController {
+    
+    // MARK: - Variables
     
     private var mailsVC: GmailsViewController?
     private var meetsVC: MeetsViewController?
@@ -17,6 +18,8 @@ final class GmailTabBarController: UITabBarController {
         return UIStoryboard(name: "Main", bundle: nil)
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllers()
@@ -24,12 +27,12 @@ final class GmailTabBarController: UITabBarController {
         configTabBar()
     }
     
-    //MARK: - Setup Methods
+    // MARK: - Setup Methods
     
     private func setupView() {
         tabBar.layer.backgroundColor = UIColor.white.cgColor
         tabBar.backgroundColor = UIColor.white
-
+        
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
         
@@ -48,7 +51,6 @@ final class GmailTabBarController: UITabBarController {
         mailsVC?.configVC()
     }
     
-
     private func setupMeetsViewController() {
         meetsVC = mainStoryBoard.instantiateViewController(withIdentifier: MeetsViewController.id) as? MeetsViewController
         meetsVC?.configVC()

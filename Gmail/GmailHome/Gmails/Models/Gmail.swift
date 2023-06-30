@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO: - Represents an email in Gmail
+
 struct Gmail: Hashable {
     let image: UIImage
     let title: String

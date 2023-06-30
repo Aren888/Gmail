@@ -10,6 +10,7 @@ import UIKit
 final class GmailsViewController: UIViewController {
     
     // MARK: - Variables
+    
     static let id = "GmailsViewControllerID"
     private let cellHeight: CGFloat = 70
     private var spinnerTimer: Timer?
@@ -153,7 +154,6 @@ final class GmailsViewController: UIViewController {
     // MARK: - Selectors
     
     @objc private func composeButtonTapped() {
-        
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "GmailComposeViewControllerID") as? GmailComposeViewController
         present(vc!, animated: true)
     }
@@ -206,6 +206,7 @@ extension GmailsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.width - inset.left - inset.right, height: cellHeight)
     }
 }
+
 extension GmailsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y

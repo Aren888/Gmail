@@ -7,9 +7,10 @@
 
 import UIKit
 
-class AddAccountViewController: UIViewController {
+final class AddAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     private var data: [AddAccount] = []
     
     override func viewDidLoad() {
@@ -59,12 +60,25 @@ extension AddAccountViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedAccount = data[indexPath.row]
         let previewViewController = PreviewViewController()
         previewViewController.account = selectedAccount
-        
+        previewViewController.delegate = self
         // Present the preview view controller
         present(previewViewController, animated: true, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
+    }
+}
+
+extension AddAccountViewController: PreviewViewControllerDelegate {
+    func continueButtonTapped(vc: PreviewViewController, account: AddAccount) {
+        if account.title.addTitleAction() == "Google" {
+            let storyBoard = UIStoryboard(name: "Registration", bundle: nil)
+            let signInViewController = storyBoard.instantiateViewController(withIdentifier: "SignInViewControllerID") as! SignInViewController
+            vc.dismiss(animated: true) {
+                self.navigationController?.pushViewController(signInViewController, animated: true)
+            }
+        }
     }
 }

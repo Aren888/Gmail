@@ -7,25 +7,32 @@
 
 import UIKit
 
-class GmailsCell: UICollectionViewCell {
+final class GmailsCell: UICollectionViewCell {
+    
+    // MARK: - Constants
+    
     static let id = "GmailsCell"
     
-//    @IBOutlet weak var imgView: UIImageView!
+    // MARK: - Outlets
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    // MARK: - Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.layer.masksToBounds = translatesAutoresizingMaskIntoConstraints
-        // Initialization code
+        imageView.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         imageView.image = nil
         titlelabel.text = nil
         subTitleLabel.text = nil
@@ -33,7 +40,10 @@ class GmailsCell: UICollectionViewCell {
         dateLabel.text = nil
     }
     
+    // MARK: - Configuration
+    
     func configure(with mail: Gmail) {
+        
         imageView.image = mail.image
         titlelabel.text = mail.title
         subTitleLabel.text = mail.subtitle

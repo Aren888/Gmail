@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TheSentLetterViewController: UIViewController {
+final class TheSentLetterViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -118,5 +118,4 @@ class TheSentLetterViewController: UIViewController {
         descriptionLabel.text = descriptionText
         dateLabel.text = date
     }
-    
 }
