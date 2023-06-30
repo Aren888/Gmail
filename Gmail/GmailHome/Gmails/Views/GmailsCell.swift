@@ -15,6 +15,7 @@ class GmailsCell: UICollectionViewCell {
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ class GmailsCell: UICollectionViewCell {
         titlelabel.text = nil
         subTitleLabel.text = nil
         descriptionLabel.text = nil
+        dateLabel.text = nil
     }
     
     func configure(with mail: Gmail) {
@@ -34,5 +36,6 @@ class GmailsCell: UICollectionViewCell {
         titlelabel.text = mail.title
         subTitleLabel.text = mail.subtitle
         descriptionLabel.text = mail.description
+        dateLabel.text = mail.date
     }
 }

@@ -7,9 +7,10 @@
 
 import UIKit
 
-struct Gmail {
+struct Gmail: Hashable {
     let image: UIImage
     let title: String
     let subtitle: String
     let description: String
+    let date: String
 }

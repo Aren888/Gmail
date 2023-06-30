@@ -17,20 +17,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-ed-0Dx">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                     <subviews>
-                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bXS-nF-yv0">
-                            <rect key="frame" x="54" y="0.0" width="212" height="54"/>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search in mail" translatesAutoresizingMaskIntoConstraints="NO" id="bXS-nF-yv0">
+                            <rect key="frame" x="44" y="0.0" width="232" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="54" id="vsN-kx-uuB"/>
+                                <constraint firstAttribute="height" constant="44" id="vsN-kx-uuB"/>
                             </constraints>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u3-X4-7cv">
-                            <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="54" id="2eP-2m-4zN"/>
-                                <constraint firstAttribute="width" constant="54" id="qtw-9t-KOC"/>
+                                <constraint firstAttribute="height" constant="44" id="2eP-2m-4zN"/>
+                                <constraint firstAttribute="width" constant="44" id="qtw-9t-KOC"/>
                             </constraints>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system"/>
                             <connections>
@@ -38,22 +38,33 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u3O-vB-fUf">
-                            <rect key="frame" x="266" y="1" width="54" height="52.666666666666671"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="276" y="1" width="44" height="42.666666666666671"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="54" id="EBg-qp-em5"/>
-                                <constraint firstAttribute="width" constant="54" id="xN3-0r-ohm"/>
+                                <constraint firstAttribute="height" constant="44" id="EBg-qp-em5"/>
+                                <constraint firstAttribute="width" constant="44" id="xN3-0r-ohm"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-3L-Hkw">
+                            <rect key="frame" x="8" y="56" width="53" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="DXH-eo-DtI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" systemColor="systemGrayColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="u3O-vB-fUf" secondAttribute="trailing" id="2gN-Yp-GHX"/>
                         <constraint firstItem="bXS-nF-yv0" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="BOZ-Ej-tt2"/>
                         <constraint firstItem="bXS-nF-yv0" firstAttribute="leading" secondItem="3u3-X4-7cv" secondAttribute="trailing" id="Ev3-T5-dU9"/>
+                        <constraint firstItem="2zz-3L-Hkw" firstAttribute="leading" secondItem="lEE-ed-0Dx" secondAttribute="leading" constant="8" id="Lzw-kz-RtS"/>
                         <constraint firstItem="3u3-X4-7cv" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="PgJ-Vs-w1h"/>
                         <constraint firstItem="u3O-vB-fUf" firstAttribute="top" secondItem="lEE-ed-0Dx" secondAttribute="top" id="XUC-Tb-bhq"/>
                         <constraint firstItem="u3O-vB-fUf" firstAttribute="leading" secondItem="bXS-nF-yv0" secondAttribute="trailing" id="XcQ-li-NVW"/>
+                        <constraint firstItem="2zz-3L-Hkw" firstAttribute="top" secondItem="bXS-nF-yv0" secondAttribute="bottom" constant="12" id="hyi-ED-D2x"/>
                         <constraint firstItem="3u3-X4-7cv" firstAttribute="leading" secondItem="lEE-ed-0Dx" secondAttribute="leading" id="x19-4E-Utz"/>
                     </constraints>
                 </view>
@@ -76,8 +87,8 @@
     <resources>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

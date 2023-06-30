@@ -26,6 +26,8 @@
 		CC88806B2A4E1AEA00FF043F /* MeetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880692A4E1AEA00FF043F /* MeetsCell.swift */; };
 		CC88806C2A4E1AEA00FF043F /* MeetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88806A2A4E1AEA00FF043F /* MeetsCell.xib */; };
 		CC8880722A4E4F0B00FF043F /* Meets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880712A4E4F0B00FF043F /* Meets.swift */; };
+		CC8880742A4E999700FF043F /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880732A4E999700FF043F /* AddAccountViewController.swift */; };
+		CC8880762A4E9BDB00FF043F /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8880752A4E9BDB00FF043F /* HelloViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		CC8880692A4E1AEA00FF043F /* MeetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetsCell.swift; sourceTree = "<group>"; };
 		CC88806A2A4E1AEA00FF043F /* MeetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetsCell.xib; sourceTree = "<group>"; };
 		CC8880712A4E4F0B00FF043F /* Meets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meets.swift; sourceTree = "<group>"; };
+		CC8880732A4E999700FF043F /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
+		CC8880752A4E9BDB00FF043F /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				CC8880322A4DE95500FF043F /* Registration.storyboard */,
+				CC8880752A4E9BDB00FF043F /* HelloViewController.swift */,
+				CC8880732A4E999700FF043F /* AddAccountViewController.swift */,
 				CC8880362A4DEBA500FF043F /* SignInViewController.swift */,
 				CC8880382A4DEBB200FF043F /* SignUpViewController.swift */,
 			);
@@ -270,8 +276,10 @@
 				CC8880462A4DF4F200FF043F /* GmailsViewController.swift in Sources */,
 				CC8880572A4E00EB00FF043F /* GmailsHeaderView.swift in Sources */,
 				CC8880092A4DBE4300FF043F /* SceneDelegate.swift in Sources */,
+				CC8880762A4E9BDB00FF043F /* HelloViewController.swift in Sources */,
 				CC8880392A4DEBB200FF043F /* SignUpViewController.swift in Sources */,
 				CC8880372A4DEBA500FF043F /* SignInViewController.swift in Sources */,
+				CC8880742A4E999700FF043F /* AddAccountViewController.swift in Sources */,
 				CC8880482A4DF52C00FF043F /* MeetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
