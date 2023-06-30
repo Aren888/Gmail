@@ -192,6 +192,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Learn more">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="12"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="learnMoreAction:" destination="4cT-mL-vTK" eventType="touchUpInside" id="EBm-BG-t8Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqS-CT-8UV">
                                 <rect key="frame" x="20" y="463" width="130" height="34"/>
@@ -203,6 +206,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Create account">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="createAccountAction:" destination="4cT-mL-vTK" eventType="touchUpInside" id="7jb-cg-9A1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-W6-nhI">
                                 <rect key="frame" x="291" y="466" width="82" height="34"/>
@@ -214,6 +220,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Sign In">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="SignInAction:" destination="4cT-mL-vTK" eventType="touchUpInside" id="O4b-rd-iYw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not your computer? Use Private Browsing windows to sign in." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uau-uf-OqJ">
                                 <rect key="frame" x="20" y="394.66666666666669" width="353" height="14.333333333333314"/>
@@ -249,6 +258,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="opK-Ee-U4J"/>
+                    <connections>
+                        <outlet property="email" destination="r3a-aM-oXV" id="LnN-Nh-0Oe"/>
+                        <outlet property="password" destination="XLT-kV-zq2" id="fHJ-zv-4E6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVT-SH-AEf" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,7 +270,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="4il-kB-BSH">
             <objects>
-                <viewController storyboardIdentifier="CreateAccountViewControllerID" id="gA1-rL-vVd" customClass="SignUpViewController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewControllerID" id="gA1-rL-vVd" customClass="SignUpViewController" customModule="Gmail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fgK-wt-q6d">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,6 +336,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpAction:" destination="gA1-rL-vVd" eventType="touchUpInside" id="SP6-Ck-r1V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMr-Qn-5mJ">
                                 <rect key="frame" x="20" y="501" width="250" height="34"/>
@@ -333,6 +349,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Already have an account ? Sign In">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="alreadyHaveAccountAction:" destination="gA1-rL-vVd" eventType="touchUpInside" id="39o-tu-dtN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fVb-lY-Ei2"/>
@@ -362,6 +381,12 @@
                             <constraint firstItem="CiQ-vT-dDx" firstAttribute="centerX" secondItem="fVb-lY-Ei2" secondAttribute="centerX" id="zfp-Jq-o8q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="ni8-bM-JdH" id="7cF-F2-UKT"/>
+                        <outlet property="firstName" destination="z0M-mO-gxa" id="OSP-Wn-CvK"/>
+                        <outlet property="lastName" destination="EQx-6J-2Jd" id="IkD-Ke-Ubg"/>
+                        <outlet property="password" destination="D9v-P0-RcN" id="avr-rU-pTQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeG-E6-LSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

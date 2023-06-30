@@ -59,9 +59,10 @@ class PreviewViewController: UIViewController {
     @objc func continueButtonTapped() {
 
         if account?.title.addTitleAction() == "Google" {
-            print("Yes")
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewControllerID") as! SignInViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
     }
 }
